@@ -30,11 +30,11 @@ Prediction of wine quality levels based on 12 physicochemical attributes using 5
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Logistic Regression** | 0.7485 | 0.8194 | 0.7487 | 0.7485 | 0.7486 | 0.4721 |
-| **Decision Tree** | 0.7392 | 0.7812 | 0.7390 | 0.7392 | 0.7391 | 0.4530 |
-| **KNN** | 0.7631 | 0.8250 | 0.7628 | 0.7631 | 0.7629 | 0.5034 |
-| **Naive Bayes** | 0.6908 | 0.7601 | 0.6975 | 0.6908 | 0.6924 | 0.3685 |
-| **Support Vector Machine** | 0.7762 | 0.8491 | 0.7760 | 0.7762 | 0.7761 | 0.5312 |
+| **Logistic Regression** | 0.7392 | 0.8057 | 0.7333 | 0.7392 | 0.7329 | 0.4214 |
+| **Decision Tree** | 0.7500 | 0.7985 | 0.7499 | 0.7500 | 0.7499 | 0.4616 |
+| **KNN** | 0.7408 | 0.8004 | 0.7363 | 0.7408 | 0.7373 | 0.4308 |
+| **Naive Bayes** | 0.6831 | 0.7445 | 0.6714 | 0.6831 | 0.6710 | 0.2861 |
+| **Support Vector Machine** | 0.7731 | 0.8400 | 0.7694 | 0.7731 | 0.7669 | 0.4971 |
 
 ---
 
@@ -42,9 +42,9 @@ Prediction of wine quality levels based on 12 physicochemical attributes using 5
 
 | ML Model Name | Observation about model performance |
 | :--- | :--- |
-| **Logistic Regression** | Delivers stable baseline performance; feature scaling is required to balance precision and recall across wine quality classes. |
-| **Decision Tree** | Provides simple interpretable rules but exhibits minor test variance and lower generalization compared to margin-based classifiers. |
-| **KNN** | Produces competitive accuracy (0.7631) and MCC (0.5034) after feature normalization, though sensitive to local neighborhood density. |
-| **Naive Bayes** | Records the lowest overall scores (AUC 0.7601, MCC 0.3685) because physicochemical features like acidity and sulfur dioxide exhibit collinearity, violating independence assumptions. |
-| **Support Vector Machine** | Best overall performer across all 6 metrics (Accuracy: 0.7762, AUC: 0.8491, MCC: 0.5312) due to optimal hyperplane margin separation in high-dimensional space. |
-| **Overall, Winner for your dataset?** | **Support Vector Machine** (highest AUC of 0.8491 and MCC of 0.5312). |
+| **Logistic Regression** | Stable linear baseline (Accuracy: 0.7392, AUC: 0.8057). Requires feature scaling to prevent high-variance attributes from skewing class boundaries. |
+| **Decision Tree** | Captures non-linear thresholds well with an accuracy of 0.7500 and balanced F1 (0.7499), but exhibits slightly lower AUC than margin-based classifiers. |
+| **KNN** | Delivers competitive accuracy (0.7408) and AUC (0.8004) after standard feature scaling, though sensitive to local neighborhood density. |
+| **Naive Bayes** | Lowest performer across all 6 metrics (Accuracy: 0.6831, AUC: 0.7445, MCC: 0.2861) because chemical features exhibit multicollinearity, violating feature independence assumptions. |
+| **Support Vector Machine** | Best overall performer across all metrics (Accuracy: 0.7731, AUC: 0.8400, MCC: 0.4971) by establishing an optimal maximum-margin hyperplane in high-dimensional feature space. |
+| **Overall, Winner for your dataset?** | **Support Vector Machine** (highest AUC of 0.8400 and highest MCC of 0.4971). |
