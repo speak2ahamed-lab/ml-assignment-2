@@ -1,6 +1,7 @@
 # Student Name: Fakrudeen Ali
 # BITS ID: 2026AJ05480
 
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -18,13 +19,23 @@ st.write("Student: Fakrudeen Ali | ID: 2026AJ05480")
 
 uploaded_file = st.sidebar.file_uploader("Upload test_data.csv", type=["csv"])
 
+# Directory where app.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Check both root directory and 'model/' folder for compatibility
+def get_path(filename):
+    p_root = os.path.join(BASE_DIR, filename)
+    p_sub = os.path.join(BASE_DIR, "model", filename)
+    return p_sub if os.path.exists(p_sub) else p_root
+
 model_paths = {
-    "Logistic Regression": "model/logistic_regression.pkl",
-    "Decision Tree": "model/decision_tree.pkl",
-    "KNN": "model/knn.pkl",
-    "Naive Bayes": "model/naive_bayes.pkl",
-    "Support Vector Machine": "model/support_vector_machine.pkl"
+    "Logistic Regression": get_path("logistic_regression.pkl"),
+    "Decision Tree": get_path("decision_tree.pkl"),
+    "KNN": get_path("knn.pkl"),
+    "Naive Bayes": get_path("naive_bayes.pkl"),
+    "Support Vector Machine": get_path("support_vector_machine.pkl")
 }
+scaler_path = get_path("scaler.pkl")
 
 selected_model = st.sidebar.selectbox("Choose Model", list(model_paths.keys()))
 
@@ -39,7 +50,7 @@ if uploaded_file is not None:
         y = df[target_col]
 
         model = joblib.load(model_paths[selected_model])
-        scaler = joblib.load("model/scaler.pkl")
+        scaler = joblib.load(scaler_path)
 
         if selected_model in ["Logistic Regression", "KNN", "Support Vector Machine"]:
             X_eval = scaler.transform(X)
@@ -51,12 +62,12 @@ if uploaded_file is not None:
         st.write(f"### Performance: {selected_model}")
         c1, c2, c3, c4, c5, c6 = st.columns(6)
         c1.metric("Accuracy", f"{accuracy_score(y, preds):.4f}")
-
+        
         auc_val = "N/A"
         if hasattr(model, "predict_proba"):
             auc_val = f"{roc_auc_score(y, model.predict_proba(X_eval)[:, 1]):.4f}"
         c2.metric("AUC", auc_val)
-
+        
         c3.metric("Precision", f"{precision_score(y, preds, average='weighted', zero_division=0):.4f}")
         c4.metric("Recall", f"{recall_score(y, preds, average='weighted', zero_division=0):.4f}")
         c5.metric("F1", f"{f1_score(y, preds, average='weighted', zero_division=0):.4f}")
