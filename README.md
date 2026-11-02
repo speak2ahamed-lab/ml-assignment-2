@@ -42,9 +42,9 @@ Prediction of wine quality levels based on 12 physicochemical attributes using 5
 
 | ML Model Name | Observation about model performance |
 | :--- | :--- |
-| **Logistic Regression** | Performs well as a baseline linear model. Feature scaling is necessary to balance precision and recall across classes. |
-| **Decision Tree** | Captures basic classification rules but shows lower generalization on unseen test splits due to variance. |
-| **KNN** | Delivers strong accuracy and MCC after feature normalization, though sensitive to local neighborhood density. |
-| **Naive Bayes** | Lowest performance due to correlated features (e.g., sulfur and acidity) violating feature independence assumptions. |
-| **Support Vector Machine** | Yields the highest overall scores across AUC and MCC by finding the optimal hyperplane margin in high-dimensional space. |
-| **Overall, Winner for your dataset?** | Support Vector Machine (highest AUC of 0.8491 and MCC of 0.5312). |
+| **Logistic Regression** | Delivers stable baseline performance; feature scaling is required to balance precision and recall across wine quality classes. |
+| **Decision Tree** | Provides simple interpretable rules but exhibits minor test variance and lower generalization compared to margin-based classifiers. |
+| **KNN** | Produces competitive accuracy (0.7631) and MCC (0.5034) after feature normalization, though sensitive to local neighborhood density. |
+| **Naive Bayes** | Records the lowest overall scores (AUC 0.7601, MCC 0.3685) because physicochemical features like acidity and sulfur dioxide exhibit collinearity, violating independence assumptions. |
+| **Support Vector Machine** | Best overall performer across all 6 metrics (Accuracy: 0.7762, AUC: 0.8491, MCC: 0.5312) due to optimal hyperplane margin separation in high-dimensional space. |
+| **Overall, Winner for your dataset?** | **Support Vector Machine** (highest AUC of 0.8491 and MCC of 0.5312). |
