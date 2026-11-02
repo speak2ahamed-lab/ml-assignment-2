@@ -3,7 +3,6 @@
 
 **Student Name:** Fakrudeen Ali  
 **BITS ID:** 2026AJ05480  
-**Submission Date:** 08-Nov-2026  
 
 ---
 
