@@ -7,18 +7,18 @@
 
 ---
 
-### 1. Mandatory Submission Links
+### Mandatory Links
 - **GitHub Repository Link:** https://github.com/speak2ahamed-lab/ml-assignment-2
 - **Live Streamlit App Link:** https://ml-assignment-2-fakrudeenali.streamlit.app/
 
 ---
 
-### 2. Problem Statement
+### A. Problem Statement
 Prediction of wine quality levels based on 12 physicochemical attributes using 5 different machine learning classification algorithms.
 
 ---
 
-### 3. Dataset Description
+### B. Dataset Description
 - **Dataset Source:** UCI Machine Learning Repository (Wine Quality Dataset)
 - **Total Instances:** 6,497 rows
 - **Total Features:** 12 numeric features (fixed acidity, volatile acidity, citric acid, residual sugar, chlorides, free sulfur dioxide, total sulfur dioxide, density, pH, sulphates, alcohol, wine_type)
@@ -26,7 +26,13 @@ Prediction of wine quality levels based on 12 physicochemical attributes using 5
 
 ---
 
-### 4. Models Used and Evaluation Metrics
+### C. Github Repository & Streamlit Link
+- **GitHub Repository Link:** https://github.com/speak2ahamed-lab/ml-assignment-2
+- **Live Streamlit App Link:** https://ml-assignment-2-fakrudeenali.streamlit.app/
+
+---
+
+### D. Models Used and Evaluation Metrics
 
 | ML Model Name | Accuracy | AUC | Precision | Recall | F1 | MCC |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -38,7 +44,7 @@ Prediction of wine quality levels based on 12 physicochemical attributes using 5
 
 ---
 
-### 5. Model Performance Observations
+### Model Observations on the performance
 
 | ML Model Name | Observation about model performance |
 | :--- | :--- |
